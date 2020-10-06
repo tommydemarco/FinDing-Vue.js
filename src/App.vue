@@ -30,6 +30,8 @@ html {
 
 body {
   margin: 0;
+  background-image: url('./assets/img/6.jpg');
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, p { color: #222}
