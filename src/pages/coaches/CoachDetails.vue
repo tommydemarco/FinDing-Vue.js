@@ -1,4 +1,6 @@
 <template>
+<!--adding a single root element for the animations -->
+<div>
     <section>
         <base-card>
             <h2>{{ fullName }}</h2>
@@ -21,6 +23,7 @@
             <p>{{ description }}</p>
         </base-card>
     </section>
+</div>
 </template>
 
 <script>

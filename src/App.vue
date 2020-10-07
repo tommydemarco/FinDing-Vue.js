@@ -1,23 +1,19 @@
 <template>
     <the-upper-header></the-upper-header>
     <the-header></the-header>
-    <router-view v-slot="slotProps" mode="out-in">
-      <transition>
-        <component :is="slotProps.Component"></component>
-      </transition>
-    </router-view>
+    <router-view></router-view>
 </template>
 
 <script>
 import TheUpperHeader from './components/layouts/TheUpperHeader.vue';
 import TheHeader from './components/layouts/TheHeader.vue';
 
+
 export default {
     components: {
         TheHeader,
         TheUpperHeader
-    }
-    
+    }   
 }
 </script>
 
@@ -41,4 +37,29 @@ body {
 h1, h2, h3, h4, h5, p { color: #222}
 
 /* animating the route components */
+.route-enter-from {
+  opacity: 0;
+  transform: translateY(-50px)
+}
+.route-leave-to {
+  opacity: 0;
+  transform: translateY(50px)
+}
+
+.route-enter-active {
+  transition: all .4s ease-out;
+}
+
+.route-leave-active {
+  transition: all .4s ease-in;
+}
+
+.route-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+.route-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>

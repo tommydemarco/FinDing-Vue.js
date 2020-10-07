@@ -1,4 +1,6 @@
 <template>
+<!--adding a single root element for the animations -->
+<div>
   <form @submit.prevent="submitForm">
     <div class="form-control">
       <label for="email">Your E-Mail</label>
@@ -13,6 +15,7 @@
       <base-button>Send Message</base-button>
     </div>
   </form>
+</div>
 </template>
 
 <script>

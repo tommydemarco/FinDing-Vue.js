@@ -1,10 +1,13 @@
 <template>
+<!--adding a single root element for the animations -->
+<div>
     <section>
         <base-card>
             <h2>Register as a coach now</h2>
             <coach-form @save-data="saveCoach"></coach-form>
         </base-card>
     </section>
+</div>
 </template>
 
 <script>
