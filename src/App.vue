@@ -1,7 +1,11 @@
 <template>
     <the-upper-header></the-upper-header>
     <the-header></the-header>
-    <router-view></router-view>
+    <router-view v-slot="slotProps" mode="out-in">
+      <transition>
+        <component :is="slotProps.Component"></component>
+      </transition>
+    </router-view>
 </template>
 
 <script>
@@ -35,4 +39,6 @@ body {
 }
 
 h1, h2, h3, h4, h5, p { color: #222}
+
+/* animating the route components */
 </style>
