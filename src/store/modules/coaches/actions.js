@@ -27,34 +27,61 @@ export default {
             id: userId
         })
     },
-    async loadCoaches (context, payload) {
+    // async loadCoaches (context, payload) {
+
+    //     if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+    //         return
+    //     }
+
+    //         const response = await fetch(`https://vue-app-4ae5e.firebaseio.com/coaches/.json`);
+    //         const responseData = await response.json();
+
+    //         if (!response.ok || response.status === 400 || response.status === 400 ) {
+    //             const error = new Error(responseData.message || 'Failed to load the coaches')
+    //             console.log('an error occurred')
+    //             throw error
+    //         }
+
+    //         const coaches = [];
+
+    //         for (const key in responseData) {
+    //             const coach = {
+    //                 id: key,
+    //                 firstName: responseData[key].firstName, 
+    //                 lastName: responseData[key].lastName,
+    //                 description: responseData[key].description,
+    //                 hourlyRate: responseData[key].hourlyRate,
+    //                 areas: responseData[key].areas
+    //             }
+    //             coaches.push(coach);
+    //         }
+    //         context.commit('setCoaches', coaches);
+    //         context.commit('setFetchTimestamp');     
+    // }
+    loadCoaches (context, payload) {
 
         if (!payload.forceRefresh && !context.getters.shouldUpdate) {
             return
         }
-
-            const response = await fetch(`https://vue-app-4ae5e.firebaseio.com/coaches/.json`);
-            const responseData = await response.json();
-
-            if (!response.ok || response.status === 400 || response.status === 400 ) {
-                const error = new Error(responseData.message || 'Failed to load the coaches')
-                console.log('an error occurred')
-                throw error
-            }
-
-            const coaches = [];
-
-            for (const key in responseData) {
-                const coach = {
-                    id: key,
-                    firstName: responseData[key].firstName, 
-                    lastName: responseData[key].lastName,
-                    description: responseData[key].description,
-                    hourlyRate: responseData[key].hourlyRate,
-                    areas: responseData[key].areas
+            const coaches = [
+                {
+                    id: '1',
+                    firstName: 'Tommy', 
+                    lastName: 'De Marco',
+                    description: 'A passionate full-stack web developer.',
+                    hourlyRate: '39',
+                    areas: ['frontend', 'backend', 'design']
+                },
+                {
+                    id: '2',
+                    firstName: 'John', 
+                    lastName: 'Doe',
+                    description: 'The world most famous developer',
+                    hourlyRate: '39',
+                    areas: ['frontend', 'backend']
                 }
-                coaches.push(coach);
-            }
+            ];
+
             context.commit('setCoaches', coaches);
             context.commit('setFetchTimestamp');     
     }

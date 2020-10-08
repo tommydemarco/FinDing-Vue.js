@@ -23,6 +23,7 @@
             v-for="coach in filteredCoaches"
             :key="coach.id"
             :id="coach.id"
+            :description="coach.description"
             :firstName="coach.firstName"
             :lastName="coach.lastName"
             :areas="coach.areas"
@@ -70,6 +71,7 @@ export default {
         }
         return false 
       })
+      
     },
     isCoach() {
         return this.$store.getters['coaches/isCoach'];
@@ -85,13 +87,22 @@ export default {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters
     },
-    async loadCoaches(refresh = false) {
+    // async loadCoaches(refresh = false) {
+    //   this.hasLoaded = false
+    //   try {
+    //     await this.$store.dispatch('coaches/loadCoaches', {forceRefresh: refresh})
+    //   } catch(e) {
+    //     this.error = e.message || 'Something went wrong'
+    //   }
+    //   this.hasLoaded = true
+    // },
+    loadCoaches(refresh = false) {
       this.hasLoaded = false
-      try {
-        await this.$store.dispatch('coaches/loadCoaches', {forceRefresh: refresh})
-      } catch(e) {
-        this.error = e.message || 'Something went wrong'
-      }
+      // try {
+      this.$store.dispatch('coaches/loadCoaches', {forceRefresh: refresh})
+      // } catch(e) {
+      //   this.error = e.message || 'Something went wrong'
+      // }
       this.hasLoaded = true
     },
     handleError() {
